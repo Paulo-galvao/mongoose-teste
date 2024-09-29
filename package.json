@@ -1,0 +1,29 @@
+{
+  "name": "mongoose-teste",
+  "version": "1.0.0",
+  "description": "nothing do descript",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paulo-galvao/mongoose-teste.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Paulo-galvao/mongoose-teste/issues"
+  },
+  "homepage": "https://github.com/Paulo-galvao/mongoose-teste#readme",
+  "dependencies": {
+    "express": "^4.21.0",
+    "mongoose": "^8.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
