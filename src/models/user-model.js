@@ -1,4 +1,5 @@
 import conn from "../db.js";
+import bcrypt from "bcrypt";
 
 const Schema = conn.Schema;
 
@@ -26,8 +27,20 @@ const userSchema = new Schema({
         required: true,
         enum: ["ADM", "REC", "TOSA"],
         default: "TOSA"
+    },
+    endereco: {
+        type: Object,
+        required: true
     }
 })
+
+userSchema.pre("save", async function () {    
+    this.senha = await bcrypt.hash(this.senha, 10); // Monta o hash criptografado
+});
+
+userSchema.methods.senhaCorreta = async function (senha) {
+    return await bcrypt.compare(senha, this.senha);
+};
 
 const User = conn.model("User", userSchema);
 
