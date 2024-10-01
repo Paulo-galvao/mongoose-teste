@@ -1,5 +1,5 @@
 import User from "../models/user-model.js";
-import jwt from "jsonwebtoken";
+import jwt from "../services/jwt-service.js";
 
 async function store(req, res) {
     try {
@@ -58,7 +58,7 @@ async function signup(req, res) {
         senha: req.body.senha,
       });
   
-      const token = jwtService.generateAccessToken({
+      const token = jwt.generateAccessToken({
         permissao: user.permissao,
         email: user.email,
         _id: user._id,
@@ -80,10 +80,9 @@ async function login(req, res) {
       const user = await User.findOne({
         email: req.body.email,
       }).exec();
-  
       //validando se existe o usuário cadastrado
       if (user && (await user.senhaCorreta(req.body.senha))) {
-        const token = jwtService.generateAccessToken({
+        const token = jwt.generateAccessToken({
           permissao: user.permissao,
           email: user.email,
           _id: user._id,

@@ -6,7 +6,7 @@ const Schema = conn.Schema;
 const userSchema = new Schema({
     name: {
         type: String,
-        required: true
+        // required: true
     },
     email: {
         type: String,
@@ -24,13 +24,13 @@ const userSchema = new Schema({
     },
     permissao: {
         type: String,
-        required: true,
+        // required: true,
         enum: ["ADM", "REC", "TOSA"],
         default: "TOSA"
     },
     endereco: {
         type: Object,
-        required: true
+        // required: true
     }
 })
 

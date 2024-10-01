@@ -1,9 +1,11 @@
 import mongoose from "mongoose";
-const mongoDb = "mongodb://localhost:27017/pet-shop";
+import "dotenv/config";
+const mongoDb = process.env.MONGODB;
 
 async function main() {
     try {
         await mongoose.connect(mongoDb);
+        console.log("DB connected");
     } catch (error) {
         console.log(error.message);
     }
